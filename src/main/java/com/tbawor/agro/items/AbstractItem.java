@@ -6,8 +6,13 @@ public abstract class AbstractItem {
     private final ItemType itemType;
 
     public AbstractItem(String name, ItemType itemType) {
+        if(name == null) {
+            throw new NullItemNameException();
+        }
+
         this.name = name;
         this.itemType = itemType;
+
     }
 
     public String getName() {
