@@ -11,15 +11,6 @@ public class AbstractItemTest {
 
         // when
         new AbstractItem(name, ItemType.WEAPON) {
-            @Override
-            public String getName() {
-                return super.getName();
-            }
-
-            @Override
-            public ItemType getItemType() {
-                return super.getItemType();
-            }
         };
     }
 
