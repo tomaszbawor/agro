@@ -23,8 +23,8 @@ public class BodyArmorTest {
     @Test
     public void shouldHaveProperItemType() {
         // given
-        final String name = "Some Armor";
-        final int defence = 10;
+        final String name = "Some Fancy Armor";
+        final int defence = 11;
 
         // when
         BodyArmor bodyArmor = new BodyArmor(name, defence);
@@ -36,8 +36,8 @@ public class BodyArmorTest {
     @Test
     public void shouldHaveBeenInitializedWithProperDefence() {
         // given
-        final String name = "Some Armor";
-        final int defence = 10;
+        final String name = "Some Werid Armor";
+        final int defence = 12;
 
         // when
         BodyArmor bodyArmor = new BodyArmor(name, defence);
