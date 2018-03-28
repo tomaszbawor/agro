@@ -10,7 +10,9 @@ public abstract class Armor extends AbstractItem {
     public Armor(String name, int defence, ItemType itemType) {
         super(name, itemType);
         this.defence = defence;
-        if(itemType == ItemType.WEAPON) throw new InvalidArmorTypeException();
+        if (itemType == ItemType.WEAPON) {
+            throw new InvalidArmorTypeException();
+        }
     }
 
     public int getDefence() {
