@@ -14,7 +14,7 @@ public class LegArmorTest {
         final int def = 11;
 
         // when
-         LegArmor legArmor = new LegArmor(name, def);
+        LegArmor legArmor = new LegArmor(name, def);
 
         // then
         assertThat(legArmor.getItemType()).isEqualTo(ItemType.LEG_ARMOR);

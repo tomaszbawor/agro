@@ -32,7 +32,7 @@ public class WeaponTest {
     }
 
     @Test
-    public void shouldHaveTypeProperlyInitalized() {
+    public void shouldHaveTypeProperlyInitialized() {
         // given
         final String weaponName = "Funny dagger";
 
