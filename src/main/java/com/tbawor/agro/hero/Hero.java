@@ -1,7 +1,11 @@
 package com.tbawor.agro.hero;
 
-import javax.persistence.*;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "hero")
@@ -33,16 +37,19 @@ public class Hero {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Hero hero = (Hero) o;
-        return Objects.equals(id, hero.id) &&
-                Objects.equals(name, hero.name);
+        return Objects.equals(id, hero.id)
+                && Objects.equals(name, hero.name);
     }
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, name);
     }
 }
