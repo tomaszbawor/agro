@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/agro
+    username: postgres-dev
+    password: s3cr3tp4ssw0rd
+  liquibase:
+    change-log: /db/changelog/database-changelog.xml
