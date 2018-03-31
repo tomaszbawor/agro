@@ -3,5 +3,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/agro
     username: postgres-dev
     password: s3cr3tp4ssw0rd
+  jpa:
+    hibernate:
+       ddl-auto: validate
   liquibase:
     change-log: /db/changelog/database-changelog.xml
