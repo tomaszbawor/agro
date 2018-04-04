@@ -17,6 +17,7 @@ public class Hero {
     private String name;
 
     public Hero() {
+        // Default constructor for hibernate
     }
 
     public Integer getId() {

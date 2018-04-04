@@ -50,7 +50,7 @@ public class Statistics {
     private Integer luck;
 
     public Statistics() {
-
+        // Default constructor for hibernate
     }
 
     public Integer getId() {
