@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.1"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.1 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.1.xsd">
+
+    <changeSet author="tbawor" id="2">
+        <createTable tableName="statistics">
+
+            <!--ID-->
+            <column name="id" autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+
+            <!--STRENGTH-->
+            <column name="strength" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--ENDURANCE-->
+            <column name="endurance" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--DEFENSE-->
+            <column name="defense" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--AGILITY-->
+            <column name="agility" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--DEXTERITY-->
+            <column name="dexterity" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--INTELLIGENCE-->
+            <column name="intelligence" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--CHARISMA-->
+            <column name="charisma" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--WISDOM-->
+            <column name="wisdom" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--WILLPOWER-->
+            <column name="willpower" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--PERCEPTION-->
+            <column name="perception" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+            <!--LUCK-->
+            <column name="luck" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

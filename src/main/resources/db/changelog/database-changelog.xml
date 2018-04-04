@@ -4,5 +4,6 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.1 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.1.xsd">
 
     <include file="db/changelog/migrations/1_Adding_hero_table.xml"/>
+    <include file="db/changelog/migrations/2_Adding_statistics_table.xml"/>
 
 </databaseChangeLog>
