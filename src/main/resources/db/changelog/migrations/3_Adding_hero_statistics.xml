@@ -3,8 +3,14 @@
                    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.1"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.1 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.1.xsd">
 
-    <include file="db/changelog/migrations/1_Adding_hero_table.xml"/>
-    <include file="db/changelog/migrations/2_Adding_statistics_table.xml"/>
-    <include file="db/changelog/migrations/3_Adding_hero_statistics.xml" />
+    <changeSet author="tbawor" id="3">
+
+        <addColumn tableName="hero">
+            <column type="int" name="statistics_id" >
+                <constraints nullable="false" references="statistics(id)" foreignKeyName="fk_hero_statistics"/>
+            </column>
+        </addColumn>
+
+    </changeSet>
 
 </databaseChangeLog>

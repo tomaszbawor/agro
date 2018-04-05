@@ -2,9 +2,11 @@ package com.tbawor.agro.hero;
 
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +17,9 @@ public class Hero {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Statistics statistics;
 
     public Hero() {
         // Default constructor for hibernate
@@ -36,6 +41,14 @@ public class Hero {
         this.name = name;
     }
 
+    public Statistics getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(Statistics statistics) {
+        this.statistics = statistics;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -46,11 +59,12 @@ public class Hero {
         }
         Hero hero = (Hero) o;
         return Objects.equals(id, hero.id)
-                && Objects.equals(name, hero.name);
+                && Objects.equals(name, hero.name)
+                && Objects.equals(statistics, hero.statistics);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, statistics);
     }
 }
