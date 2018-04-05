@@ -176,4 +176,21 @@ public class Statistics {
     public int hashCode() {
         return Objects.hash(id, strength, endurance, defense, agility, dexterity, intelligence, charisma, wisdom, willpower, perception, luck);
     }
+
+    static class Stub extends Statistics {
+        Stub() {
+            super();
+            setStrength(5);
+            setEndurance(5);
+            setDefense(5);
+            setAgility(5);
+            setDexterity(5);
+            setIntelligence(5);
+            setCharisma(4);
+            setWisdom(4);
+            setWillpower(4);
+            setPerception(4);
+            setLuck(4);
+        }
+    }
 }
