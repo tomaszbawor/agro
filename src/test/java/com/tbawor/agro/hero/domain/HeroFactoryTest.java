@@ -1,5 +1,4 @@
-package com.tbawor.agro.hero;
-
+package com.tbawor.agro.hero.domain;
 
 import org.junit.Test;
 

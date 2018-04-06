@@ -1,4 +1,4 @@
-package com.tbawor.agro.hero;
+package com.tbawor.agro.hero.domain;
 
 import java.util.Objects;
 import javax.persistence.Column;
@@ -169,7 +169,7 @@ public class Statistics {
                 && Objects.equals(wisdom, that.wisdom)
                 && Objects.equals(willpower, that.willpower)
                 && Objects.equals(perception, that.perception)
-                && Objects.equals(luck, that.luck);
+                && Objects.equals(luck, that.luck);  
     }
 
     @Override

@@ -1,6 +1,7 @@
-package com.tbawor.agro.hero;
+package com.tbawor.agro.hero.domain;
 
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class Hero {
     private Integer id;
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Statistics statistics;
 
     public Hero() {

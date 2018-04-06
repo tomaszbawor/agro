@@ -1,4 +1,4 @@
-package com.tbawor.agro.hero;
+package com.tbawor.agro.hero.domain;
 
 public class HeroFactory {
 
