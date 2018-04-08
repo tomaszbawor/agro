@@ -14,10 +14,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @JsonTest
-public class CreateHeroDTOJsonTestIT {
+public class CreateHeroDtoJsonTestIT {
 
     @Autowired
-    private JacksonTester<CreateHeroDTO> json;
+    private JacksonTester<CreateHeroDto> json;
 
     @Test
     public void shouldDeserializeCreateHeroDto() throws IOException {
@@ -39,8 +39,8 @@ public class CreateHeroDTOJsonTestIT {
                 .replace('\'','"');
 
         // when
-        final ObjectContent<CreateHeroDTO> parsedContent = json.parse(jsonContent);
-        CreateHeroDTO dto = parsedContent.getObject();
+        final ObjectContent<CreateHeroDto> parsedContent = json.parse(jsonContent);
+        CreateHeroDto dto = parsedContent.getObject();
 
         // then
         assertThat(dto.getName()).isEqualTo("TestName");

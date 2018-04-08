@@ -8,7 +8,6 @@ public class HeroRestController {
 
     @PostMapping
     public void createHero(){
-//        return null;
     }
 
 }

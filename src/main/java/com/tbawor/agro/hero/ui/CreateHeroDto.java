@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tbawor.agro.hero.application.CreateHeroCommand;
 
-public class CreateHeroDTO implements CreateHeroCommand {
+public class CreateHeroDto implements CreateHeroCommand {
 
     private final String name;
     private final Integer strength;
@@ -20,7 +20,7 @@ public class CreateHeroDTO implements CreateHeroCommand {
     private final Integer luck;
 
     @JsonCreator
-    public CreateHeroDTO(
+    public CreateHeroDto(
             @JsonProperty("name") String name,
             @JsonProperty("strength") Integer strength,
             @JsonProperty("endurance") Integer endurance,
