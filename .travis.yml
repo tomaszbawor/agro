@@ -1,12 +1,18 @@
 language: java
-
 addons:
   sonarcloud:
-    organization: "tomaszbawor-github"
-    token: ${SONAR_TOKEN}
+    organization: tomaszbawor-github
+    token: "${SONAR_TOKEN}"
 jdk:
-  - oraclejdk8
+- oraclejdk8
 before_install:
-  - chmod +x mvnw
+- chmod +x mvnw
 after_success:
-  - mvn clean verify jacoco:report coveralls:report sonar:sonar
+- mvn clean verify jacoco:report coveralls:report sonar:sonar
+deploy:
+  provider: heroku
+  api_key:
+    secure: kTCXndTqnrc/O9KZ6XjN67NalpSAxHhDqJXJX0TENhKHZfOTUHbqtFjXtyvemPMokApc0WaH57ofBM8bPcOW94nGvegASUWEN431j1y68p34q+dVawLTT7HJnrflpRYoLH6eRtMUso2H9zizyGnosW6Di6GCXbHQqWDtwczAeYeCdKYwuVHfERl5q2Rj3yl/y9sA7IXv0en7CenRHAwysLPNK+g96BrbLZ/Ev+HeXVC0H6aypj9jvUGiCiKqg3qtRmyM8mD29hl3QjfYz9XBfqB0XokyH7XoRi1oAxYtlC5p8GI43vfC8iqqz9M5cDlmSu3UcP+eL8eZbMhTVcfpgFi/y1yxMpD4TylNjrcpOu74jUVhW3hrvSnPsX9ZZuWwCrWtE6i8kFB94vJY3KL19n9Z0QO35ivudtQmlSbuOzq4ZNRIRy/QwwfPQPel8Ux9xu479K8HUg91lCwFzq/izf/z73FLkUHx2cIIIEuHunUmHdwUXzrRp+XHLuDykRLVO0IHzKcm4nS7jpjcTJx9qjxYwbVW90eEbsl0T7cJqJalrGQt5NGwTtH3+VdMK1ll0ED1L1FxtAJ2+QNHn0ze05SPgbi0YnZwUgctQ0L9b2R7sN2C2knDDHEhOjE99wyI7te0MLOK+zNMDHEiqKAuPjwY/mo+sMwZ5tuXbf2JRT8=
+  app: agrogame
+  on:
+    repo: tomaszbawor/agro
