@@ -1,6 +1,6 @@
 package com.tbawor.agro.hero.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface HeroRepository extends CrudRepository<Hero, Integer> {
+public interface HeroRepository extends JpaRepository<Hero, Integer> {
 }

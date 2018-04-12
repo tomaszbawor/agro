@@ -18,8 +18,6 @@ public class HeroQueryService {
     }
 
     public List<Hero> listAllHeroes() {
-        ArrayList<Hero> list = new ArrayList<>();
-        repository.findAll().forEach(list::add);
-        return list;
+       return repository.findAll();
     }
 }
