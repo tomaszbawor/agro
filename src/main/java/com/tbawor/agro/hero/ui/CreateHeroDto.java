@@ -2,7 +2,7 @@ package com.tbawor.agro.hero.ui;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.tbawor.agro.hero.application.CreateHeroCommand;
+import com.tbawor.agro.hero.application.command.CreateHeroCommand;
 
 public class CreateHeroDto implements CreateHeroCommand {
 
