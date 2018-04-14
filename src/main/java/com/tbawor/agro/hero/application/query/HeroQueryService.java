@@ -2,8 +2,9 @@ package com.tbawor.agro.hero.application.query;
 
 import com.tbawor.agro.hero.domain.Hero;
 import com.tbawor.agro.hero.domain.HeroRepository;
-import java.util.ArrayList;
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,6 @@ public class HeroQueryService {
     }
 
     public List<Hero> listAllHeroes() {
-       return repository.findAll();
+        return repository.findAll();
     }
 }
