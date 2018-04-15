@@ -6,5 +6,6 @@
     <include file="db/changelog/migrations/1_Adding_hero_table.xml"/>
     <include file="db/changelog/migrations/2_Adding_statistics_table.xml"/>
     <include file="db/changelog/migrations/3_Adding_hero_statistics.xml" />
+    <include file="db/changelog/migrations/4_Create_items.xml" />
 
 </databaseChangeLog>
