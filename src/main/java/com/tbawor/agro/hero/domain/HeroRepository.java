@@ -1,6 +1,9 @@
 package com.tbawor.agro.hero.domain;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import io.vavr.collection.Seq;
+import org.springframework.data.repository.Repository;
 
-public interface HeroRepository extends JpaRepository<Hero, Integer> {
+public interface HeroRepository extends Repository<Hero, Integer> {
+    Hero save(Hero hero);
+    Seq<Hero> findAll();
 }

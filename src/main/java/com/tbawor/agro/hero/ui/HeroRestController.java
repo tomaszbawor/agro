@@ -3,7 +3,8 @@ package com.tbawor.agro.hero.ui;
 import com.tbawor.agro.hero.application.command.HeroCommandHandler;
 import com.tbawor.agro.hero.application.query.HeroQueryService;
 import com.tbawor.agro.hero.domain.Hero;
-import java.util.List;
+
+import io.vavr.collection.Seq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,7 @@ public class HeroRestController {
     }
 
     @GetMapping
-    public List<Hero> getAllHeroes() {
+    public Seq<Hero> getAllHeroes() {
         return queryService.listAllHeroes();
     }
 
