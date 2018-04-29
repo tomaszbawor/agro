@@ -1,7 +1,11 @@
 package com.tbawor.agro.security.domain;
 
-import javax.persistence.*;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "application_users")
@@ -39,12 +43,16 @@ public class ApplicationUser {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         ApplicationUser that = (ApplicationUser) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(login, that.login) &&
-                Objects.equals(password, that.password);
+        return Objects.equals(id, that.id)
+                && Objects.equals(login, that.login)
+                && Objects.equals(password, that.password);
     }
 
     @Override
