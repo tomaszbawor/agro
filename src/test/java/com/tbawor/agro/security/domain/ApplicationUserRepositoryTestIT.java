@@ -1,5 +1,6 @@
 package com.tbawor.agro.security.domain;
 
+import io.vavr.control.Option;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,17 +23,20 @@ public class ApplicationUserRepositoryTestIT {
     @Test
     public void shouldFindApplicationUserByLogin() {
         // given
+        final String login = "FakeLogin";
+        final String password = "FakePassword";
+
         ApplicationUser user = new ApplicationUser();
-        user.setLogin("FakeLogin");
-        user.setPassword("FakePasew");
+        user.setLogin(login);
+        user.setPassword(password);
 
         entityManager.persist(user);
 
         // when
-        final ApplicationUser fakeLogin = repository.findByLogin("FakeLogin");
+        final Option<ApplicationUser> maybeUser = repository.findByLogin(login);
 
         // then
-        assertThat(fakeLogin).isNotNull();
+        assertThat(maybeUser.isDefined()).isTrue();
     }
 
 }
