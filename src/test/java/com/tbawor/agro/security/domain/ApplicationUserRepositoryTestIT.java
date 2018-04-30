@@ -39,4 +39,22 @@ public class ApplicationUserRepositoryTestIT {
         assertThat(maybeUser.isDefined()).isTrue();
     }
 
+    @Test
+    public void shouldSaveApplicationUser() {
+        // given
+        final String userLogin = "ExampleLogin";
+        final String userPassword = "ExamplePassword";
+
+        final ApplicationUser user = new ApplicationUser();
+        user.setLogin(userLogin);
+        user.setPassword(userPassword);
+
+        // when
+        repository.save(user);
+
+        // then
+        assertThat(user.getId()).isNotNull();
+        assertThat(repository.findByLogin(userLogin).isDefined());
+    }
+
 }
