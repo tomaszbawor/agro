@@ -2,7 +2,9 @@ package com.tbawor.agro.security.application.command;
 
 import com.tbawor.agro.security.domain.ApplicationUser;
 import com.tbawor.agro.security.domain.ApplicationUserRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ApplicationUserCommandHandler {
 
     private final ApplicationUserRepository repository;

@@ -1,6 +1,9 @@
 package com.tbawor.agro.security.ui;
 
-import com.tbawor.agro.security.domain.ApplicationUserRepository;
+import com.tbawor.agro.security.application.command.ApplicationUserCommandHandler;
+import com.tbawor.agro.security.application.query.ApplicationUserInfo;
+import com.tbawor.agro.security.application.query.ApplicationUserQueryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,15 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/user")
 public class UserRestController {
 
-    private final ApplicationUserRepository repository;
+    private final ApplicationUserCommandHandler commandHandler;
+    private final ApplicationUserQueryService queryService;
 
-    public UserRestController(ApplicationUserRepository repository) {
-        this.repository = repository;
+    @Autowired
+    public UserRestController(
+            ApplicationUserCommandHandler commandHandler,
+            ApplicationUserQueryService queryService
+    ) {
+        this.commandHandler = commandHandler;
+        this.queryService = queryService;
     }
 
     @PostMapping
-    public RegisterUserDto register(@RequestBody RegisterUserDto registerForm) {
-        //TODO: implement
-        return null;
+    public ApplicationUserInfo register(@RequestBody RegisterUserDto registerForm) {
+        commandHandler.createUser(registerForm);
+        return queryService.findByLogin(registerForm.getLogin());
     }
 }

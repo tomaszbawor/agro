@@ -12,7 +12,7 @@ public class ApplicationUserQueryService {
         this.repository = repository;
     }
 
-    ApplicationUserInfo findByLogin(String login) {
+    public ApplicationUserInfo findByLogin(String login) {
         return repository.findByLogin(login)
                 .map(
                         user -> new ApplicationUserInfo(user.getId(), user.getLogin())
