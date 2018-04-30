@@ -1,5 +1,6 @@
 package com.tbawor.agro.security.domain;
 
+import io.vavr.collection.Seq;
 import io.vavr.control.Option;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,7 +55,27 @@ public class ApplicationUserRepositoryTestIT {
 
         // then
         assertThat(user.getId()).isNotNull();
-        assertThat(repository.findByLogin(userLogin).isDefined());
+        assertThat(repository.findByLogin(userLogin).isDefined()).isTrue();
+    }
+
+    @Test
+    public void shouldFindAllUsers() {
+        // given
+        final String login = "FakeLogin";
+        final String password = "FakePassword";
+
+        ApplicationUser user = new ApplicationUser();
+        user.setLogin(login);
+        user.setPassword(password);
+
+        entityManager.persist(user);
+
+        // when
+        final Seq<ApplicationUser> users = repository.findAll();
+
+        // then
+        assertThat(users).isNotNull();
+        assertThat(users).hasSize(1);
     }
 
 }

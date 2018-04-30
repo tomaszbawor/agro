@@ -17,6 +17,8 @@ public class ApplicationUser {
     private String login;
     private String password;
 
+
+
     public Integer getId() {
         return id;
     }
