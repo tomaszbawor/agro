@@ -18,4 +18,9 @@ public class ApplicationUserInfo {
         return login;
     }
 
+    static class NullApplicationUserInfo extends ApplicationUserInfo {
+        NullApplicationUserInfo() {
+            super(null, null);
+        }
+    }
 }
