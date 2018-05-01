@@ -1,11 +1,9 @@
 package com.tbawor.agro.security.domain;
 
+import java.util.HashSet;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.Set;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "application_users")
@@ -16,6 +14,14 @@ public class ApplicationUser {
     private Integer id;
     private String login;
     private String password;
+
+    @ManyToMany
+    @JoinTable(
+            name = "application_user_roles",
+            joinColumns = {@JoinColumn(name = "application_user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id")}
+    )
+    private Set<Role> roles = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -41,22 +47,28 @@ public class ApplicationUser {
         this.password = password;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         ApplicationUser that = (ApplicationUser) o;
-        return Objects.equals(id, that.id)
-                && Objects.equals(login, that.login)
-                && Objects.equals(password, that.password);
+        return Objects.equals(id, that.id) &&
+                Objects.equals(login, that.login) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(roles, that.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, password);
+
+        return Objects.hash(id, login, password, roles);
     }
 }
