@@ -8,5 +8,6 @@
     <include file="db/changelog/migrations/3_Adding_hero_statistics.xml" />
     <include file="db/changelog/migrations/4_Create_items.xml" />
     <include file="db/changelog/migrations/5_Create_application_user_table.xml" />
+    <include file="db/changelog/migrations/6_Adding_user_roles.xml"/>
 
 </databaseChangeLog>
