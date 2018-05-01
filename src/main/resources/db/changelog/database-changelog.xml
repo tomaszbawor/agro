@@ -10,5 +10,6 @@
     <include file="db/changelog/migrations/5_Create_application_user_table.xml" />
     <include file="db/changelog/migrations/6_Adding_user_roles.xml"/>
     <include file="db/changelog/migrations/7_Populate_basic_user_roles.xml"/>
+    <include file="db/changelog/migrations/8_Adding_basic_users.xml"/>
 
 </databaseChangeLog>

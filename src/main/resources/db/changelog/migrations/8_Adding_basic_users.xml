@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="tbawor" id="8">
+
+        <addAutoIncrement tableName="application_user_roles" columnName="id" />
+
+        <!--ADMIN-->
+        <insert tableName="application_users">
+            <column name="login" >admin</column>
+            <!--hash('admin')-->
+            <column name="password">$2a$10$EFhhLNxazdLVYSIuZ266yukah1Lh2zGZw19t38i9qqaj4Nml2CT62</column>
+        </insert>
+
+        <!--USER-->
+        <insert tableName="application_users">
+            <column name="login">user</column>
+            <!--hash('user')-->
+            <column name="password">$2a$10$Qmk5r.T3x8W0mqY5E06Ifef5JhTqcpX6Uv0G/sesmpoO1n4z0/Syi</column>
+        </insert>
+
+
+        <insert tableName="application_user_roles">
+            <column name="application_user_id"
+                    valueComputed="(select id from application_users u where u.login = 'admin')" />
+            <column name="role_id"
+                    valueComputed="(select id from roles r where r.role_name ='ROLE_ADMIN')" />
+        </insert>
+
+        <insert tableName="application_user_roles">
+            <column name="application_user_id"
+                    valueComputed="(select id from application_users u where u.login = 'user')" />
+            <column name="role_id"
+                    valueComputed="(select id from roles r where r.role_name ='ROLE_USER')" />
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
