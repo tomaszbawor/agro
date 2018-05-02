@@ -12,8 +12,7 @@ public class Role {
     private Integer id;
     private String roleName;
 
-    public Role(Integer id) {
-        this.id = id;
+    public Role() {
     }
 
     public Integer getId() {
