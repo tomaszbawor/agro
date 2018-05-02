@@ -1,11 +1,11 @@
 package com.tbawor.agro.security.config;
 
 import com.tbawor.agro.security.domain.ApplicationUser;
+import java.util.Collection;
+import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.stream.Collectors;
 
 public class ApplicationUserDetails implements UserDetails {
 

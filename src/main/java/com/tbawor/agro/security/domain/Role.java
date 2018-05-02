@@ -1,11 +1,16 @@
 package com.tbawor.agro.security.domain;
 
-import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +38,15 @@ public class Role {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Role role = (Role) o;
-        return Objects.equals(id, role.id) &&
-                Objects.equals(roleName, role.roleName);
+        return Objects.equals(id, role.id)
+                && Objects.equals(roleName, role.roleName);
     }
 
     @Override

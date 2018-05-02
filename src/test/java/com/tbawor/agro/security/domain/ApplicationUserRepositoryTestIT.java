@@ -61,6 +61,7 @@ public class ApplicationUserRepositoryTestIT {
     @Test
     public void shouldFindAllUsers() {
         // given
+        entityManager.clear();
         final String login = "FakeLogin";
         final String password = "FakePassword";
 
@@ -75,7 +76,8 @@ public class ApplicationUserRepositoryTestIT {
 
         // then
         assertThat(users).isNotNull();
-        assertThat(users).hasSize(1);
+        assertThat(users).anyMatch(u -> u.getLogin().equals(login)
+                && u.getPassword().equals(password));
     }
 
 }
