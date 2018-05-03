@@ -11,7 +11,6 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,8 +43,10 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
 
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest req,
-                                                HttpServletResponse res) throws AuthenticationException {
+    public Authentication attemptAuthentication(
+            HttpServletRequest req,
+            HttpServletResponse res
+    ) {
         try {
             LoginUserDto credentials = new ObjectMapper()
                     .readValue(req.getInputStream(), LoginUserDto.class);
@@ -56,8 +57,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                             credentials.getPassword(),
                             new ArrayList<>())
             );
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException exception) {
+            throw new TokenParseException("Unable to parse token", exception);
         }
     }
 
@@ -65,7 +66,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest req,
                                             HttpServletResponse res,
                                             FilterChain chain,
-                                            Authentication auth) throws IOException, ServletException {
+                                            Authentication auth) {
 
         String token = Jwts.builder()
                 .setSubject(((ApplicationUserDetails) auth.getPrincipal()).getUsername())
@@ -73,5 +74,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .signWith(SignatureAlgorithm.HS512, SECRET.getBytes(Charset.forName("UTF-8")))
                 .compact();
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+    }
+
+    static class TokenParseException extends AuthenticationException {
+        TokenParseException(String msg, Throwable t) {
+            super(msg, t);
+        }
     }
 }
