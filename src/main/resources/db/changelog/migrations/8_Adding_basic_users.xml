@@ -7,7 +7,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet author="tbawor" id="8">
 
-        <addAutoIncrement tableName="application_user_roles" columnName="id" />
+        <addAutoIncrement tableName="application_user_roles" columnName="id" columnDataType="int" />
 
         <!--ADMIN-->
         <insert tableName="application_users">
