@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(HeroRestController.class)
+@WebMvcTest(value = HeroRestController.class, secure = false)
 public class HeroRestControllerTestIT {
 
     @Autowired
