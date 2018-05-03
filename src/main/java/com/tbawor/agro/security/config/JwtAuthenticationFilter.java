@@ -1,16 +1,11 @@
 package com.tbawor.agro.security.config;
 
-import static com.tbawor.agro.security.config.SecurityConstants.EXPIRATION_TIME;
-import static com.tbawor.agro.security.config.SecurityConstants.HEADER_STRING;
-import static com.tbawor.agro.security.config.SecurityConstants.LOGIN_URL;
-import static com.tbawor.agro.security.config.SecurityConstants.SECRET;
-import static com.tbawor.agro.security.config.SecurityConstants.TOKEN_PREFIX;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tbawor.agro.security.ui.LoginUserDto;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -19,6 +14,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,6 +24,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
+    private static final String TOKEN_PREFIX = "Bearer ";
+    private static final String HEADER_STRING = "Authorization";
+    private static final String LOGIN_URL = "/api/users/login";
+    private static final long EXPIRATION_TIME = 864_000_000; // 10 days
+    //TODO: Externalize this to properties
+    private static final String SECRET = "SecretKeyToGenJWTs";
+
 
     private final AuthenticationManager authenticationManager;
 

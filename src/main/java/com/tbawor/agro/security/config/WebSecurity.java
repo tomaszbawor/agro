@@ -1,7 +1,5 @@
 package com.tbawor.agro.security.config;
 
-import static com.tbawor.agro.security.config.SecurityConstants.SIGN_UP_URL;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -18,6 +16,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
+
+    private static final String SIGN_UP_URL = "/api/users/sign-up";
 
     private final UserDetailsService userDetailsService;
     private final BCryptPasswordEncoder passwordEncoder;
