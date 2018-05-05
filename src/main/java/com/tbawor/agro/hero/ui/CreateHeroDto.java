@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tbawor.agro.hero.application.command.CreateHeroCommand;
 
-public class CreateHeroDto implements CreateHeroCommand {
+public class CreateHeroDto {
 
     private final String name;
     private final Integer strength;
@@ -48,62 +48,50 @@ public class CreateHeroDto implements CreateHeroCommand {
         this.luck = luck;
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public Integer getStrength() {
         return strength;
     }
 
-    @Override
     public Integer getEndurance() {
         return endurance;
     }
 
-    @Override
     public Integer getDefense() {
         return defense;
     }
 
-    @Override
     public Integer getAgility() {
         return agility;
     }
 
-    @Override
     public Integer getDexterity() {
         return dexterity;
     }
 
-    @Override
     public Integer getIntelligence() {
         return intelligence;
     }
 
-    @Override
     public Integer getCharisma() {
         return charisma;
     }
 
-    @Override
     public Integer getWisdom() {
         return wisdom;
     }
 
-    @Override
     public Integer getWillpower() {
         return willpower;
     }
 
-    @Override
     public Integer getPerception() {
         return perception;
     }
 
-    @Override
     public Integer getLuck() {
         return luck;
     }

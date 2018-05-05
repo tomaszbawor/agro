@@ -1,8 +1,10 @@
 package com.tbawor.agro.hero.domain;
 
+import com.tbawor.agro.security.domain.ApplicationUser;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
 public class HeroFactoryTest {
 
@@ -10,10 +12,11 @@ public class HeroFactoryTest {
     public void shouldCreateNotNullHero() {
         // given
         final String heroName = "Euzebiusz";
+        final ApplicationUser owner = mock(ApplicationUser.class);
 
         // when
         final HeroFactory factory = new HeroFactory();
-        final Hero newHero = factory.createNewHero(heroName, new Statistics.Stub());
+        final Hero newHero = factory.createNewHero(heroName, new Statistics.Stub(), owner);
 
         // then
         assertThat(newHero).isNotNull();
@@ -23,10 +26,11 @@ public class HeroFactoryTest {
     public void shouldCreateHeroWithProperName() {
         // given
         final String heroName = "Komornik";
+        final ApplicationUser owner = mock(ApplicationUser.class);
 
         // when
         final HeroFactory factory = new HeroFactory();
-        final Hero newHero = factory.createNewHero(heroName, new Statistics.Stub());
+        final Hero newHero = factory.createNewHero(heroName, new Statistics.Stub(), owner);
 
         // then
         assertThat(newHero.getName()).isEqualTo(heroName);
@@ -35,6 +39,7 @@ public class HeroFactoryTest {
     @Test
     public void shouldCreateHeroWithProperStatistics() {
         // given
+        final ApplicationUser owner = mock(ApplicationUser.class);
         final String heroName = "Themen";
         final Integer strengthVal = 12;
         final Statistics statistics = new Statistics.Stub();
@@ -42,7 +47,7 @@ public class HeroFactoryTest {
 
         // when
         final HeroFactory factory = new HeroFactory();
-        final Hero newHero = factory.createNewHero(heroName, statistics);
+        final Hero newHero = factory.createNewHero(heroName, statistics, owner);
 
         // then
         assertThat(newHero.getStatistics().getStrength()).isEqualTo(strengthVal);

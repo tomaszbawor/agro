@@ -26,4 +26,6 @@ public interface CreateHeroCommand {
 
     Integer getLuck();
 
+    String getOwnerLogin();
+
 }
