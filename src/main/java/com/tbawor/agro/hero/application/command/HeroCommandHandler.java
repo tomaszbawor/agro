@@ -25,22 +25,10 @@ public class HeroCommandHandler {
     }
 
     public Hero createHero(CreateHeroCommand command) {
-        // TODO: Refactor
-        final ApplicationUser owner = userRepository.findByLogin(command.getOwnerLogin()).get();
-
-        final Statistics statistics = new Statistics();
-        statistics.setStrength(command.getStrength());
-        statistics.setEndurance(command.getEndurance());
-        statistics.setDefense(command.getDefense());
-        statistics.setAgility(command.getAgility());
-        statistics.setDexterity(command.getDexterity());
-        statistics.setIntelligence(command.getIntelligence());
-        statistics.setCharisma(command.getCharisma());
-        statistics.setWisdom(command.getWisdom());
-        statistics.setWillpower(command.getWillpower());
-        statistics.setPerception(command.getPerception());
-        statistics.setLuck(command.getLuck());
-
+        final ApplicationUser owner =
+                userRepository.findByLogin(command.getOwnerLogin()).get();
+        final StatisticsBuilder statisticsBuilder = new StatisticsBuilder(command);
+        final Statistics statistics = statisticsBuilder.build();
         final HeroFactory heroFactory = new HeroFactory();
         final Hero hero = heroFactory.createNewHero(
                 command.getName(),
