@@ -54,4 +54,21 @@ public class HeroFactoryTest {
         assertThat(newHero.getStatistics()).isEqualTo(statistics);
     }
 
+    @Test
+    public void shouldCreateHeroWithNonNullHealth() {
+        // given
+        final ApplicationUser owner = mock(ApplicationUser.class);
+        final String heroName = "Themen";
+        final Statistics statistics = new Statistics.Stub();
+
+        // when
+        final HeroFactory heroFactory = new HeroFactory();
+        final Hero newHero = heroFactory.createNewHero(heroName, statistics, owner);
+
+        // then
+        final Health heroHealth = newHero.getHealth();
+        assertThat(heroHealth).isNotNull();
+        assertThat(heroHealth.getMaxHealth()).isEqualTo(heroHealth.getHealth());
+    }
+
 }
