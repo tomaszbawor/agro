@@ -96,4 +96,17 @@ public class Hero {
     public int hashCode() {
         return Objects.hash(id, name, statistics, owner, health);
     }
+
+    public boolean isAlive() {
+        return health.getHealth() > 0;
+    }
+
+    public void getDamage(Integer damageValue) {
+        final Integer healthValue = this.health.getHealth();
+        if (damageValue < healthValue) {
+            this.health.setHealth(healthValue - damageValue);
+        } else {
+            this.health.setHealth(0);
+        }
+    }
 }

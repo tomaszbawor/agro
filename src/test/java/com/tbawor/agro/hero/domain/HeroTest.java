@@ -15,6 +15,7 @@ public class HeroTest {
         final String heroName = "ExampleHeroName";
         final Statistics statistics = mock(Statistics.class);
         final ApplicationUser owner = mock(ApplicationUser.class);
+        final Health health = mock(Health.class);
 
         // when
         final Hero firstHero = new Hero();
@@ -22,14 +23,115 @@ public class HeroTest {
         firstHero.setName(heroName);
         firstHero.setStatistics(statistics);
         firstHero.setOwner(owner);
+        firstHero.setHealth(health);
         final Hero secondHero = new Hero();
         secondHero.setId(heroId);
         secondHero.setName(heroName);
         secondHero.setStatistics(statistics);
         secondHero.setOwner(owner);
+        secondHero.setHealth(health);
 
         // then
         assertThat(firstHero).isEqualTo(secondHero);
     }
+
+    @Test
+    public void shouldBeAliveWhenHealthIsMoreThanZero() {
+        // given
+        final Integer heroId = 10;
+        final String heroName = "ExampleHeroName";
+        final Statistics statistics = mock(Statistics.class);
+        final ApplicationUser owner = mock(ApplicationUser.class);
+        final Health health = new Health();
+        health.setMaxHealth(10);
+        health.setHealth(1);
+
+        // when
+        final Hero hero = new Hero();
+        hero.setId(heroId);
+        hero.setName(heroName);
+        hero.setStatistics(statistics);
+        hero.setOwner(owner);
+        hero.setHealth(health);
+
+        // then
+        assertThat(hero.isAlive()).isTrue();
+    }
+
+    @Test
+    public void shouldNotBeAliveWhenHealthIsZero() {
+        // given
+        final Integer heroId = 10;
+        final String heroName = "ExampleHeroName";
+        final Statistics statistics = mock(Statistics.class);
+        final ApplicationUser owner = mock(ApplicationUser.class);
+        final Health health = new Health();
+        health.setMaxHealth(10);
+        health.setHealth(0);
+
+        // when
+        final Hero hero = new Hero();
+        hero.setId(heroId);
+        hero.setName(heroName);
+        hero.setStatistics(statistics);
+        hero.setOwner(owner);
+        hero.setHealth(health);
+
+        // then
+        assertThat(hero.isAlive()).isFalse();
+    }
+
+    @Test
+    public void shouldGetDamage() {
+        // given
+        final Integer heroId = 10;
+        final String heroName = "ExampleHeroName";
+        final Statistics statistics = mock(Statistics.class);
+        final ApplicationUser owner = mock(ApplicationUser.class);
+        final Integer heroHealth = 10;
+        final Integer damageValue = 3;
+        final Health health = new Health();
+        health.setMaxHealth(heroHealth);
+        health.setHealth(heroHealth);
+
+        // when
+        final Hero hero = new Hero();
+        hero.setId(heroId);
+        hero.setName(heroName);
+        hero.setStatistics(statistics);
+        hero.setOwner(owner);
+        hero.setHealth(health);
+        hero.getDamage(damageValue);
+
+        // then
+        assertThat(hero.getHealth().getHealth()).isEqualTo(heroHealth - damageValue);
+    }
+
+    @Test
+    public void shouldNotGetMoreDamageThanHealth() {
+        // given
+        final Integer heroId = 10;
+        final String heroName = "ExampleHeroName";
+        final Statistics statistics = mock(Statistics.class);
+        final ApplicationUser owner = mock(ApplicationUser.class);
+        final Integer heroHealth = 10;
+        final Integer gotDamageValue = 11;
+        final Health health = new Health();
+        health.setMaxHealth(heroHealth);
+        health.setHealth(heroHealth);
+
+        // when
+        final Hero hero = new Hero();
+        hero.setId(heroId);
+        hero.setName(heroName);
+        hero.setStatistics(statistics);
+        hero.setOwner(owner);
+        hero.setHealth(health);
+        hero.getDamage(gotDamageValue);
+
+        // then
+        assertThat(hero.getHealth().getHealth()).isZero();
+    }
+
 
 }
