@@ -9,10 +9,13 @@ public class HeroFactory {
             Statistics statistics,
             ApplicationUser owner
     ) {
+        final HealthFactory healthFactory = new HealthFactory();
+        final Health heroHealth = healthFactory.createHealthFromStatistics(statistics);
         final Hero hero = new Hero();
         hero.setName(name);
         hero.setStatistics(statistics);
         hero.setOwner(owner);
+        hero.setHealth(heroHealth);
         return hero;
     }
 

@@ -4,6 +4,7 @@ import com.tbawor.agro.security.domain.ApplicationUser;
 
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,6 +28,9 @@ public class Hero {
 
     @OneToOne(fetch = FetchType.EAGER)
     private ApplicationUser owner;
+
+    @Embedded
+    private Health health;
 
     public Hero() {
         // Default constructor for hibernate
@@ -64,6 +68,14 @@ public class Hero {
         this.owner = owner;
     }
 
+    public Health getHealth() {
+        return health;
+    }
+
+    public void setHealth(Health health) {
+        this.health = health;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -76,11 +88,25 @@ public class Hero {
         return Objects.equals(id, hero.id)
                 && Objects.equals(name, hero.name)
                 && Objects.equals(statistics, hero.statistics)
-                && Objects.equals(owner, hero.owner);
+                && Objects.equals(owner, hero.owner)
+                && Objects.equals(health, hero.health);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, statistics, owner);
+        return Objects.hash(id, name, statistics, owner, health);
+    }
+
+    public boolean isAlive() {
+        return health.getHealth() > 0;
+    }
+
+    public void getDamage(Integer damageValue) {
+        final Integer healthValue = this.health.getHealth();
+        if (damageValue < healthValue) {
+            this.health.setHealth(healthValue - damageValue);
+        } else {
+            this.health.setHealth(0);
+        }
     }
 }

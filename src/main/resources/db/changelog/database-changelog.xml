@@ -5,13 +5,14 @@
 
     <include file="db/changelog/migrations/1_Adding_hero_table.xml"/>
     <include file="db/changelog/migrations/2_Adding_statistics_table.xml"/>
-    <include file="db/changelog/migrations/3_Adding_hero_statistics.xml" />
-    <include file="db/changelog/migrations/4_Create_items.xml" />
-    <include file="db/changelog/migrations/5_Create_application_user_table.xml" />
+    <include file="db/changelog/migrations/3_Adding_hero_statistics.xml"/>
+    <include file="db/changelog/migrations/4_Create_items.xml"/>
+    <include file="db/changelog/migrations/5_Create_application_user_table.xml"/>
     <include file="db/changelog/migrations/6_Adding_user_roles.xml"/>
     <include file="db/changelog/migrations/7_Populate_basic_user_roles.xml"/>
     <include file="db/changelog/migrations/8_Adding_basic_users.xml"/>
     <include file="db/changelog/migrations/9_Making_user_login_unique.xml"/>
-    <include file="db/changelog/migrations/10_Add_owner_to_hero.xml" />
+    <include file="db/changelog/migrations/10_Add_owner_to_hero.xml"/>
+    <include file="db/changelog/migrations/11_Add_health_to_hero.xml"/>
 
 </databaseChangeLog>
