@@ -12,5 +12,10 @@ To perform java code style check plese execute:
 ./mvnw checkstyle:checkstyle
 ```
 
+## API Documentation 
+
+For Api documentation you can user swagger-ui by entering : 
+`http://localhost:8080/swagger-ui.html` into your web browser.
+
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftomaszbawor%2Fagro.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftomaszbawor%2Fagro?ref=badge_large)
