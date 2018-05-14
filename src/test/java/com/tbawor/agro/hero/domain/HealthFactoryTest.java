@@ -38,7 +38,7 @@ public class HealthFactoryTest {
         final Health health = factory.createHealthFromStatistics(statistics);
 
         // then
-        assertThat(health.getHealth())
+        assertThat(health.getCurrentHealth())
                 .isEqualTo(health.getMaxHealth())
                 .isEqualTo(enduranceVal * 2);
     }

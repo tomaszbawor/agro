@@ -12,9 +12,10 @@ class Health implements Serializable {
     private Integer maxHealth;
 
     @Column(name = "health", nullable = false)
-    private Integer health;
+    private Integer currentHealth;
 
     public Health() {
+        // default constructor for hibernate
     }
 
     public Integer getMaxHealth() {
@@ -25,12 +26,12 @@ class Health implements Serializable {
         this.maxHealth = maxHealth;
     }
 
-    public Integer getHealth() {
-        return health;
+    public Integer getCurrentHealth() {
+        return currentHealth;
     }
 
-    public void setHealth(Integer health) {
-        this.health = health;
+    public void setCurrentHealth(Integer currentHealth) {
+        this.currentHealth = currentHealth;
     }
 
     @Override
@@ -43,11 +44,11 @@ class Health implements Serializable {
         }
         Health health1 = (Health) o;
         return Objects.equals(maxHealth, health1.maxHealth)
-                && Objects.equals(health, health1.health);
+                && Objects.equals(currentHealth, health1.currentHealth);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(maxHealth, health);
+        return Objects.hash(maxHealth, currentHealth);
     }
 }

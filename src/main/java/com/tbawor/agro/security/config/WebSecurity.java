@@ -19,16 +19,16 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     private static final String SIGN_UP_URL = "/api/user";
     private static final String[] API_WHITELIST = {
-            "/",
-            "/v2/api-docs",           // swagger
-            "/webjars/**",            // swagger-ui webjars
-            "/swagger-resources/**",  // swagger-ui resources
-            "/configuration/**",      // swagger configuration
-            "/*.html",
-            "/favicon.ico",
-            "/**/*.html",
-            "/**/*.css",
-            "/**/*.js"
+        "/",
+        "/v2/api-docs",           // swagger
+        "/webjars/**",            // swagger-ui webjars
+        "/swagger-resources/**",  // swagger-ui resources
+        "/configuration/**",      // swagger configuration
+        "/*.html",
+        "/favicon.ico",
+        "/**/*.html",
+        "/**/*.css",
+        "/**/*.js"
     };
 
     private final UserDetailsService userDetailsService;

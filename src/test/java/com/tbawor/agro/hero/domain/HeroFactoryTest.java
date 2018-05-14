@@ -68,7 +68,7 @@ public class HeroFactoryTest {
         // then
         final Health heroHealth = newHero.getHealth();
         assertThat(heroHealth).isNotNull();
-        assertThat(heroHealth.getMaxHealth()).isEqualTo(heroHealth.getHealth());
+        assertThat(heroHealth.getMaxHealth()).isEqualTo(heroHealth.getCurrentHealth());
     }
 
 }

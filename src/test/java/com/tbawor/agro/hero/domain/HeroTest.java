@@ -44,7 +44,7 @@ public class HeroTest {
         final ApplicationUser owner = mock(ApplicationUser.class);
         final Health health = new Health();
         health.setMaxHealth(10);
-        health.setHealth(1);
+        health.setCurrentHealth(1);
 
         // when
         final Hero hero = new Hero();
@@ -67,7 +67,7 @@ public class HeroTest {
         final ApplicationUser owner = mock(ApplicationUser.class);
         final Health health = new Health();
         health.setMaxHealth(10);
-        health.setHealth(0);
+        health.setCurrentHealth(0);
 
         // when
         final Hero hero = new Hero();
@@ -92,7 +92,7 @@ public class HeroTest {
         final Integer damageValue = 3;
         final Health health = new Health();
         health.setMaxHealth(heroHealth);
-        health.setHealth(heroHealth);
+        health.setCurrentHealth(heroHealth);
 
         // when
         final Hero hero = new Hero();
@@ -104,7 +104,7 @@ public class HeroTest {
         hero.getDamage(damageValue);
 
         // then
-        assertThat(hero.getHealth().getHealth()).isEqualTo(heroHealth - damageValue);
+        assertThat(hero.getHealth().getCurrentHealth()).isEqualTo(heroHealth - damageValue);
     }
 
     @Test
@@ -118,7 +118,7 @@ public class HeroTest {
         final Integer gotDamageValue = 11;
         final Health health = new Health();
         health.setMaxHealth(heroHealth);
-        health.setHealth(heroHealth);
+        health.setCurrentHealth(heroHealth);
 
         // when
         final Hero hero = new Hero();
@@ -130,7 +130,7 @@ public class HeroTest {
         hero.getDamage(gotDamageValue);
 
         // then
-        assertThat(hero.getHealth().getHealth()).isZero();
+        assertThat(hero.getHealth().getCurrentHealth()).isZero();
     }
 
 

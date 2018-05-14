@@ -98,15 +98,15 @@ public class Hero {
     }
 
     public boolean isAlive() {
-        return health.getHealth() > 0;
+        return health.getCurrentHealth() > 0;
     }
 
     public void getDamage(Integer damageValue) {
-        final Integer healthValue = this.health.getHealth();
+        final Integer healthValue = this.health.getCurrentHealth();
         if (damageValue < healthValue) {
-            this.health.setHealth(healthValue - damageValue);
+            this.health.setCurrentHealth(healthValue - damageValue);
         } else {
-            this.health.setHealth(0);
+            this.health.setCurrentHealth(0);
         }
     }
 }

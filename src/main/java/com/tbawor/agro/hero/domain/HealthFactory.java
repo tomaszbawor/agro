@@ -9,7 +9,7 @@ class HealthFactory {
         final Integer calculatedHealthValue = calculateMaxHealth(statistics);
         final Health health = new Health();
         health.setMaxHealth(calculatedHealthValue);
-        health.setHealth(calculatedHealthValue);
+        health.setCurrentHealth(calculatedHealthValue);
         return health;
     }
 
