@@ -2,7 +2,9 @@ package com.tbawor.agro.security.ui;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
+@Getter
 public class LoginUserDto {
     private final String login;
     private final String password;
@@ -14,13 +16,5 @@ public class LoginUserDto {
     ) {
         this.login = login;
         this.password = password;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
     }
 }

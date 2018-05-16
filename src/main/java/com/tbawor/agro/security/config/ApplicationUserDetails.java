@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
 public class ApplicationUserDetails implements UserDetails {
 
     private final ApplicationUser user;

@@ -1,15 +1,16 @@
 package com.tbawor.agro.hero.domain;
 
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table(name = "statistics")
+@Data
 public class Statistics {
 
     @Id
@@ -48,134 +49,6 @@ public class Statistics {
 
     @Column(nullable = false)
     private Integer luck;
-
-    public Statistics() {
-        // Default constructor for hibernate
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getStrength() {
-        return strength;
-    }
-
-    public void setStrength(Integer strength) {
-        this.strength = strength;
-    }
-
-    public Integer getEndurance() {
-        return endurance;
-    }
-
-    public void setEndurance(Integer endurance) {
-        this.endurance = endurance;
-    }
-
-    public Integer getDefense() {
-        return defense;
-    }
-
-    public void setDefense(Integer defense) {
-        this.defense = defense;
-    }
-
-    public Integer getAgility() {
-        return agility;
-    }
-
-    public void setAgility(Integer agility) {
-        this.agility = agility;
-    }
-
-    public Integer getDexterity() {
-        return dexterity;
-    }
-
-    public void setDexterity(Integer dexterity) {
-        this.dexterity = dexterity;
-    }
-
-    public Integer getIntelligence() {
-        return intelligence;
-    }
-
-    public void setIntelligence(Integer intelligence) {
-        this.intelligence = intelligence;
-    }
-
-    public Integer getCharisma() {
-        return charisma;
-    }
-
-    public void setCharisma(Integer charisma) {
-        this.charisma = charisma;
-    }
-
-    public Integer getWisdom() {
-        return wisdom;
-    }
-
-    public void setWisdom(Integer wisdom) {
-        this.wisdom = wisdom;
-    }
-
-    public Integer getWillpower() {
-        return willpower;
-    }
-
-    public void setWillpower(Integer willpower) {
-        this.willpower = willpower;
-    }
-
-    public Integer getPerception() {
-        return perception;
-    }
-
-    public void setPerception(Integer perception) {
-        this.perception = perception;
-    }
-
-    public Integer getLuck() {
-        return luck;
-    }
-
-    public void setLuck(Integer luck) {
-        this.luck = luck;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Statistics that = (Statistics) o;
-        return Objects.equals(id, that.id)
-                && Objects.equals(strength, that.strength)
-                && Objects.equals(endurance, that.endurance)
-                && Objects.equals(defense, that.defense)
-                && Objects.equals(agility, that.agility)
-                && Objects.equals(dexterity, that.dexterity)
-                && Objects.equals(intelligence, that.intelligence)
-                && Objects.equals(charisma, that.charisma)
-                && Objects.equals(wisdom, that.wisdom)
-                && Objects.equals(willpower, that.willpower)
-                && Objects.equals(perception, that.perception)
-                && Objects.equals(luck, that.luck);  
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, strength, endurance, defense, agility, dexterity, intelligence, charisma, wisdom, willpower, perception, luck);
-    }
 
     static class Stub extends Statistics {
         Stub() {

@@ -3,7 +3,9 @@ package com.tbawor.agro.security.ui;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tbawor.agro.security.application.command.CreateApplicationUserCommand;
+import lombok.Getter;
 
+@Getter
 class RegisterUserDto implements CreateApplicationUserCommand {
 
     private final String login;
@@ -18,11 +20,4 @@ class RegisterUserDto implements CreateApplicationUserCommand {
         this.password = password;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 }
