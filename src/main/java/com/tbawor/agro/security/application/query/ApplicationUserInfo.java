@@ -1,5 +1,8 @@
 package com.tbawor.agro.security.application.query;
 
+import lombok.Getter;
+
+@Getter
 public class ApplicationUserInfo {
 
     private final Integer id;
@@ -8,14 +11,6 @@ public class ApplicationUserInfo {
     public ApplicationUserInfo(Integer id, String login) {
         this.id = id;
         this.login = login;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getLogin() {
-        return login;
     }
 
     static class NullApplicationUserInfo extends ApplicationUserInfo {
