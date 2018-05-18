@@ -4,7 +4,7 @@
 
     <groupId>com.tbawor</groupId>
     <artifactId>agro</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>agro</name>
