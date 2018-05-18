@@ -14,5 +14,6 @@
     <include file="db/changelog/migrations/9_Making_user_login_unique.xml"/>
     <include file="db/changelog/migrations/10_Add_owner_to_hero.xml"/>
     <include file="db/changelog/migrations/11_Add_health_to_hero.xml"/>
+    <include file="db/changelog/migrations/12_Add_arena_monsters.xml"/>
 
 </databaseChangeLog>
