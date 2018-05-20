@@ -25,7 +25,5 @@ class StatisticsBuilder {
         statistics.setLuck(command.getLuck());
         return statistics;
     }
-
-
 }
 
