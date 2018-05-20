@@ -15,5 +15,6 @@
     <include file="db/changelog/migrations/10_Add_owner_to_hero.xml"/>
     <include file="db/changelog/migrations/11_Add_health_to_hero.xml"/>
     <include file="db/changelog/migrations/12_Add_arena_monsters.xml"/>
+    <include file="db/changelog/migrations/13_Adding_unique_hero_name.xml"/>
 
 </databaseChangeLog>
