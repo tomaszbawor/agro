@@ -1,5 +1,6 @@
 package com.tbawor.agro.arena.ui;
 
+import com.tbawor.agro.arena.application.command.ArenaCommandHandler;
 import com.tbawor.agro.arena.application.query.ArenaMonsterDto;
 import com.tbawor.agro.arena.application.query.ArenaQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,15 @@ import java.util.List;
 public class ArenaController {
 
     private final ArenaQueryService queryService;
+    private final ArenaCommandHandler commandHandler;
 
     @Autowired
-    public ArenaController(ArenaQueryService queryService) {
+    public ArenaController(
+            ArenaQueryService queryService,
+            ArenaCommandHandler commandHandler
+    ) {
         this.queryService = queryService;
+        this.commandHandler = commandHandler;
     }
 
     @GetMapping
