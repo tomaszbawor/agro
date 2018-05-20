@@ -1,6 +1,5 @@
 package com.tbawor.agro.arena.application.query;
 
-
 import com.tbawor.agro.arena.domain.ArenaMonster;
 import lombok.Value;
 

@@ -6,6 +6,8 @@ import org.springframework.data.repository.Repository;
 
 public interface HeroRepository extends Repository<Hero, Integer> {
     Hero save(Hero hero);
+
     Seq<Hero> findAll();
+
     Option<Hero> findByOwnerLogin(String ownerName);
 }
