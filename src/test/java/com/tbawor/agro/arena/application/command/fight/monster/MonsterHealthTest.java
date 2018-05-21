@@ -34,7 +34,7 @@ public class MonsterHealthTest {
     }
 
     @Test
-    public void healtShouldBeZeroWhenInflictedDamageIsGreaterThanHealth() {
+    public void shouldReturnBeZeroHealthWhenInflictedDamageIsGreaterThanCurrentValue() {
         // given
         final Integer maxHealth = 10;
         final Integer inflictedDamage = 30;
