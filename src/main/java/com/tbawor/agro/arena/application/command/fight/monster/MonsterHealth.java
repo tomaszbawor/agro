@@ -17,13 +17,8 @@ class MonsterHealth {
         return currentHealth > 0;
     }
 
-   void inflictDamage(Integer damage) {
-       if(damage > currentHealth) {
-           currentHealth = 0;
-       }
-       else {
-           currentHealth = currentHealth - damage;
-       }
-   }
+    void inflictDamage(Integer damage) {
+        currentHealth = Math.max(0, currentHealth - damage);
+    }
 
 }
