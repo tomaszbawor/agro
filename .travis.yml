@@ -9,6 +9,7 @@ before_install:
 - chmod +x mvnw
 after_success:
 - mvn clean verify jacoco:report coveralls:report sonar:sonar
+- bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: heroku
   api_key:
