@@ -48,10 +48,6 @@ public class Hero implements Attackable {
         return this.health.getMaxHealth();
     }
 
-    public Boolean isAlive() {
-        return health.getCurrentHealth() > 0;
-    }
-
     public void inflictDamage(Integer damageValue) {
         this.health.setCurrentHealth(
                 Math.max(0, this.currentHealth() - damageValue)

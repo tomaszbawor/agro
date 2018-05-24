@@ -6,7 +6,9 @@ public interface Attackable {
 
     Integer maxHealth();
 
-    Boolean isAlive();
+    default Boolean isAlive() {
+        return currentHealth() > 0;
+    }
 
     void inflictDamage(Integer value);
 }
