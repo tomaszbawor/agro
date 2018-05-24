@@ -101,7 +101,7 @@ public class HeroTest {
         hero.setStatistics(statistics);
         hero.setOwner(owner);
         hero.setHealth(health);
-        hero.getDamage(damageValue);
+        hero.inflictDamage(damageValue);
 
         // then
         assertThat(hero.getHealth().getCurrentHealth()).isEqualTo(heroHealth - damageValue);
@@ -127,7 +127,7 @@ public class HeroTest {
         hero.setStatistics(statistics);
         hero.setOwner(owner);
         hero.setHealth(health);
-        hero.getDamage(gotDamageValue);
+        hero.inflictDamage(gotDamageValue);
 
         // then
         assertThat(hero.getHealth().getCurrentHealth()).isZero();

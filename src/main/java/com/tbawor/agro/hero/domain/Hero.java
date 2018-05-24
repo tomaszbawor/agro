@@ -1,5 +1,6 @@
 package com.tbawor.agro.hero.domain;
 
+import com.tbawor.agro.common.Attackable;
 import com.tbawor.agro.security.domain.ApplicationUser;
 
 import javax.persistence.CascadeType;
@@ -17,7 +18,7 @@ import lombok.Data;
 @Entity
 @Table(name = "hero")
 @Data
-public class Hero {
+public class Hero implements Attackable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,16 +38,23 @@ public class Hero {
         // Default constructor for hibernate
     }
 
-    public boolean isAlive() {
+    @Override
+    public Integer currentHealth() {
+        return this.health.getCurrentHealth();
+    }
+
+    @Override
+    public Integer maxHealth() {
+        return this.health.getMaxHealth();
+    }
+
+    public Boolean isAlive() {
         return health.getCurrentHealth() > 0;
     }
 
-    public void getDamage(Integer damageValue) {
-        final Integer healthValue = this.health.getCurrentHealth();
-        if (damageValue < healthValue) {
-            this.health.setCurrentHealth(healthValue - damageValue);
-        } else {
-            this.health.setCurrentHealth(0);
-        }
+    public void inflictDamage(Integer damageValue) {
+        this.health.setCurrentHealth(
+                Math.max(0, this.currentHealth() - damageValue)
+        );
     }
 }
